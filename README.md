@@ -39,5 +39,7 @@ Option name | Default value | Explanation
 ------------|---------------|------------
 audioElementId | audio | Id value for the `<audio>` tag created by the transcriber.
 playButtonId | playButton | Id value for the play/pause button created by the transcriber.
+repeatInterval | 1 | Number of seconds to be repeated when autoplaying after the user starts typing,
+waitInterval | 200 | Number of milliseconds to wait for another keystroke before the player starts again
 
 
