@@ -86,7 +86,7 @@ function addPositionButton(audioId, interval, title) {
 
 function insertAudioLink(editor, audioElement, brTag) {
     if (brTag) editor.insertHtml('<br />');
-    editor.insertHtml('[<a class="linkToAudioPosition" href="#audioPos-' + audioElement[0].currentTime + '">' + formatSecondsAsTime(audioElement[0].currentTime) + '</a>] ');
+    editor.insertHtml('<a class="linkToAudioPosition" href="#audioPos-' + audioElement[0].currentTime + '">[' + formatSecondsAsTime(audioElement[0].currentTime) + ']</a> ');
 
 }
 
@@ -210,8 +210,10 @@ function toggleAudio(playButton, playStatusIndicator, timer, allowAutoPlay) {
                 range.collapse(false);
                 selection.selectRanges([range]);
             });
-            // insert initial link into editor
-            insertAudioLink(editor, audioElement, false);
+            // insert initial link into editor (only if it's empty!)
+            if (textAreaElement.val() == '') {
+                insertAudioLink(editor, audioElement, false);
+            }
         });
 
         return this;
